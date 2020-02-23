@@ -3,7 +3,7 @@
 </h1>
 
 <div>
-<img src="http://localhost:3000/assets/img/burger.png" id="MainBurger" alt="Burger" style="margin-left: 45%">
+    <img src="http://localhost:3000/assets/img/burger.png" id="MainBurger" alt="Burger" style="margin-left: 45%">
 </div>
 
 <br>
@@ -17,7 +17,7 @@
 <ul>
     {{#each burgers}}
     {{#unless devoured}}
-   
+
     <li>
         <p>{{this.id}} {{this.burger_name}} </p>
         <button data-id="{{this.id}}" data-devoured="{{this.devoured}}" class="devour">Devour Burger</button>
@@ -36,7 +36,7 @@
 <ul>
     {{#each burgers}}
     {{#if devoured}}
-   
+
     <li>
         <p>{{this.id}} {{this.burger_name}} </p>
         <button data-id="{{this.id}}" data-devoured="{{this.devoured}}" class="delete">Clear Up Burger</button>
