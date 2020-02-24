@@ -1,19 +1,19 @@
 $(function () {
-    $(".devour").on("click", function (event) {
-        var id = $(this).data("id");
-        var newDevoured = $(this).data("newDevoured");
+    $('.devour').on('click', function (event) {
+        var id = $(this).data('id');
+        var newDevoured = $(this).data('newDevoured');
 
         var newDevouredState = {
             devoured: newDevoured
         };
 
         // Send the PUT request.
-        $.ajax("/api/burgers/" + id, {
-            type: "PUT",
+        $.ajax('/api/burgers/' + id, {
+            type: 'PUT',
             data: newDevouredState
         }).then(
             function () {
-                console.log("The Burger has been Devoured", newDevoured);
+                console.log('The Burger has been Devoured', newDevoured);
                 // Reload the page to get the updated list
                 location.reload();
             }
@@ -21,39 +21,39 @@ $(function () {
     });
 
 
-    $(".create-form").on("submit", function (event) {
+    $('.create-form').on('submit', function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
         var newBurger = {
-            name: $("#newBurger").val().trim(),
+            name: $('#newBurger').val().trim(),
         };
 
         // Send the POST request.
-        $.ajax("/api/burgers", {
-            type: "POST",
+        $.ajax('/api/burgers', {
+            type: 'POST',
             data: newBurger
         }).then(
             function () {
-                console.log("Successfully added new burger!");
+                console.log('Successfully added new burger!');
                 // Reload the page to get the updated list
                 location.reload();
             }
         );
     });
 
-    $(".delete").on("click", function(event) {
-        var id = $(this).data("id");
-    
+    $('.delete').on('click', function (event) {
+        var id = $(this).data('id');
+
         // Send the DELETE request.
-        $.ajax("/api/burgers/" + id, {
-          type: "DELETE"
+        $.ajax('/api/burgers/' + id, {
+            type: 'DELETE'
         }).then(
-          function() {
-            console.log("Deleted Burger: ", id);
-            // Reload the page to get the updated list
-            location.reload();
-          }
+            function () {
+                console.log('Deleted Burger: ', id);
+                // Reload the page to get the updated list
+                location.reload();
+            }
         );
-      });
+    });
 });
