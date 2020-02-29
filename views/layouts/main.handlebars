@@ -5,13 +5,89 @@
 	<meta charset='UTF-8'>
 	<link href='/public/assets/css/burger_style.css' type='text/css' />
 	<title>Eat-Da-Burger || Dane Shrewsbury</title>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+	<script src="https://kit.fontawesome.com/3ebfa83b85.js" crossorigin="anonymous"></script>
 </head>
 
+<style>
+	body {
+		background-image: url('../assets/img/slider-3.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	h1 {
+		color: white;
+		font-size: 48px;
+		text-align: center;
+	}
+
+	.menu {
+		text-align: center;
+		color: white;
+		font-size: 48px;
+	}
+
+	.image-parent {
+		display: flex;
+		justify-content: center;
+	}
+
+	.main-title {
+		padding: 30px 0 50px 0;
+		height: 350px;
+	}
+
+	li p {
+		color: white;
+	}
+
+	.swiper-container {
+		background: #40739e;
+		width: 50%;
+		height: 250px;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	.swiper-slide {
+		background-position: center;
+		background-size: cover;
+		width: 250px;
+		height: 250px;
+
+	}
+</style>
+
 <body>
+
+
 	{{{ body }}}
 
+	<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 	<script src='https://code.jquery.com/jquery.js'></script>
 	<script src='/assets/js/burgerfunction.js'></script>
+
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			effect: 'coverflow',
+			grabCursor: true,
+			centeredSlides: true,
+			slidesPerView: 'auto',
+			coverflowEffect: {
+				rotate: 50,
+				stretch: 0,
+				depth: 100,
+				modifier: 1,
+				slideShadows: true,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+			},
+		});
+	</script>
 </body>
 
 </html>

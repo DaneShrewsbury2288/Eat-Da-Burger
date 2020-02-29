@@ -4,11 +4,9 @@ const connection = require('../config/connection.js');
 const objToSql = (ob) => {
   // column1=value, column2=value2,...
   const arr = [];
-
   for (const key in ob) {
     arr.push(key + '=' + ob[key]);
   }
-
   return arr.toString();
 }
 

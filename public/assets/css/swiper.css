@@ -1,9 +1,15 @@
-
+body {
+    background: white;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
 
 .swiper-container {
     background: #40739e;
     width: 50%;
-    height: 300px;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -13,10 +19,4 @@
     background-size: cover;
     width: 300px;
     height: 300px;
-    
 }
-
-ul li p {
-    color: white;
-}
-    

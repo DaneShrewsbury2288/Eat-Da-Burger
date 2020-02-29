@@ -1,9 +1,11 @@
-$(function () {
+$(document).ready(function () {
     $('.devour').on('click', function (event) {
-        var id = $(this).data('id');
-        var newDevoured = $(this).data('newDevoured');
+        event.preventDefault();
 
-        var newDevouredState = {
+        let id = $(this).data('id');
+        let newDevoured = $(this).data('newDevoured');
+
+        let newDevouredState = {
             devoured: newDevoured
         };
 
@@ -20,12 +22,35 @@ $(function () {
         );
     });
 
+    $('.swiper-slide').on('dblclick', function (event) {
+        event.preventDefault();
+
+        let id = this.id;
+        let selection = menuSwap(id);
+
+        let newBurger = {
+            name: selection
+        }
+
+        $.ajax('api/burgers', {
+            type: 'POST',
+            data: newBurger
+        }).then(
+            function () {
+                console.log(`Successfully added new breakfast item!`);
+
+                location.reload();
+            }
+        )
+        console.log(`This is my menu selection: ${selection}`)
+    });
+
 
     $('.create-form').on('submit', function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
-        var newBurger = {
+        let newBurger = {
             name: $('#newBurger').val().trim(),
         };
 
@@ -38,12 +63,13 @@ $(function () {
                 console.log('Successfully added new burger!');
                 // Reload the page to get the updated list
                 location.reload();
+
             }
         );
     });
 
     $('.delete').on('click', function (event) {
-        var id = $(this).data('id');
+        let id = $(this).data('id');
 
         // Send the DELETE request.
         $.ajax('/api/burgers/' + id, {
@@ -57,3 +83,15 @@ $(function () {
         );
     });
 });
+
+const menuSwap = (menuId) => {
+    switch (menuId) {
+        case 'MenuItem1': return 'Pancakes';
+        case 'MenuItem2': return 'Waffles';
+        case 'MenuItem3': return 'French Toast';
+        case 'MenuItem4': return 'Scrambled Eggs';
+        case 'MenuItem5': return 'Bacon';
+        case 'MenuItem6': return 'Orange Juice';
+        case 'MenuItem7': return 'Omelette';
+    }
+}
